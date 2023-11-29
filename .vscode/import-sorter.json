@@ -1,0 +1,10 @@
+{
+    "groupRules": [
+        ["^[@][^/]", {}],
+        ["^@(/|$)", "^apis?(/|$)", "^typings?(/|$)", "^utils(/|$)"],
+        { "flags": "named", "regex": "^[.]" },
+        [{ "flags": "scripts" }]
+    ],
+    "wrappingStyle": "prettier",
+    "nodeProtocol": "always"
+}
