@@ -60,7 +60,7 @@
         "boilerplate"
     ],
     "activationEvents": [
-        "onCommand:VSCodeExtensionBoilerplate.helloVSCode"
+        "*"
     ],
     "contributes": {
         "commands": [
