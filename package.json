@@ -1,29 +1,35 @@
 {
-    "name": "awesome-vscode-extension-boilerplate",
-    "displayName": "Awesome VSCode Extension Boilerplate",
+    "name": "speed-test",
+    "displayName": "Speed Test",
     "version": "0.0.29",
-    "description": "An awesome vscode extension boilerplate",
-    "publisher": "YuTengjing",
+    "description": "Test your internet speed right in your IDE",
+    "publisher": "Emeka Orji",
     "private": true,
     "preview": true,
     "author": {
-        "name": "YuTengjing",
-        "email": "ytj2713151713@gmail.com",
-        "url": "https://github.com/tjx666"
+        "name": "Emeka Orji",
+        "email": "emekapraiseo@gmail.com",
+        "url": "https://github.com/emekaorji"
     },
-    "license": "SEE LICENSE IN LICENSE",
-    "homepage": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/blob/master/README.md",
+    "license": "MIT",
+    "homepage": "https://github.com/emekaorji/speed-test/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/tjx666/awesome-vscode-extension-boilerplate"
+        "url": "https://github.com/emekaorji/speed-test"
     },
     "bugs": {
-        "url": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/issues",
-        "email": "ytj2713151713@gmail.com"
+        "url": "https://github.com/emekaorji/speed-test/issues",
+        "email": "emekapraiseo@gmail.com"
     },
     "keywords": [
-        "boilerplate",
-        "template"
+        "Speed Test",
+        "Internet Speed",
+        "Network Speed",
+        "Speed",
+        "Internet",
+        "Download",
+        "Upload",
+        "Network"
     ],
     "categories": [
         "Other"
@@ -37,15 +43,17 @@
         {
             "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
             "description": "PRs Welcome",
-            "href": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/fork"
+            "href": "https://github.com/emekaorji/speed-test/fork"
         }
     ],
-    "activationEvents": [],
+    "activationEvents": [
+        "*"
+    ],
     "contributes": {
         "commands": [
             {
-                "command": "awesome-vscode-extension-boilerplate.helloWorld",
-                "title": "Hello World"
+                "command": "speed-test.testSpeed",
+                "title": "Speed Test"
             }
         ]
     },
@@ -106,5 +114,11 @@
         "stale-dep": "^0.6.2",
         "tsx": "^3.12.7",
         "typescript": "^5.1.6"
+    },
+    "dependencies": {
+        "@types/zen-observable": "^0.8.7",
+        "delay": "5.0.0",
+        "puppeteer": "^21.5.2",
+        "zen-observable": "0.8.15"
     }
 }
