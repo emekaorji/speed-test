@@ -1,124 +1,129 @@
 {
-    "name": "speed-test",
-    "displayName": "Speed Test",
-    "version": "0.0.29",
-    "description": "Test your internet speed right in your IDE",
-    "publisher": "Emeka Orji",
-    "private": true,
-    "preview": true,
-    "author": {
-        "name": "Emeka Orji",
-        "email": "emekapraiseo@gmail.com",
-        "url": "https://github.com/emekaorji"
-    },
-    "license": "MIT",
-    "homepage": "https://github.com/emekaorji/speed-test/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/emekaorji/speed-test"
-    },
-    "bugs": {
-        "url": "https://github.com/emekaorji/speed-test/issues",
-        "email": "emekapraiseo@gmail.com"
-    },
-    "keywords": [
-        "Speed Test",
-        "Internet Speed",
-        "Network Speed",
-        "Speed",
-        "Internet",
-        "Download",
-        "Upload",
-        "Network"
-    ],
-    "categories": [
-        "Other"
-    ],
-    "main": "./out/src/extension.js",
-    "icon": "assets/logo.png",
-    "engines": {
-        "vscode": "^1.80.0"
-    },
-    "badges": [
-        {
-            "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
-            "description": "PRs Welcome",
-            "href": "https://github.com/emekaorji/speed-test/fork"
-        }
-    ],
-    "activationEvents": [
-        "*"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "speed-test.testSpeed",
-                "title": "Speed Test"
-            }
-        ]
-    },
-    "eslintConfig": {
-        "extends": "@yutengjing/eslint-config-typescript",
-        "ignorePatterns": [
-            "test-workspace"
-        ]
-    },
-    "prettier": "@yutengjing/prettier-config",
-    "lint-staged": {
-        "*.{ts,json,md}": [
-            "eslint --fix",
-            "prettier --write"
-        ]
-    },
-    "simple-git-hooks": {
-        "pre-commit": "npx lint-staged"
-    },
-    "scripts": {
-        "vscode:prepublish": "pnpm esbuild:base --minify",
-        "preinstall": "npx only-allow pnpm",
-        "postinstall": "stale-dep -u",
-        "prepare": "simple-git-hooks",
-        "clean": "npx rimraf -rf ./out",
-        "esbuild:base": "stale-dep && tsx scripts/esbuild.ts",
-        "esbuild:watch": "pnpm esbuild:base --sourcemap --watch",
-        "esbuild:analyze": "pnpm esbuild:base --minify --metafile --analyze && esbuild-visualizer --metadata ./meta.json --open",
-        "compile:test": "pnpm clean && tsc -b ./test/tsconfig.json",
-        "lint": "eslint src --ext ts",
-        "test": "stale-dep && pnpm compile:test && node ./out/test/runTests.js",
-        "package": "vsce package --no-dependencies",
-        "release": "npx @yutengjing/release",
-        "publish:vs-marketplace": "vsce publish --no-dependencies",
-        "publish:open-vsx": "ovsx publish --no-dependencies"
-    },
-    "devDependencies": {
-        "@types/glob": "^8.1.0",
-        "@types/mocha": "^10.0.1",
-        "@types/node": "^18.16.19",
-        "@types/vscode": "^1.80.0",
-        "@vscode/test-electron": "^2.3.3",
-        "@vscode/vsce": "^2.19.0",
-        "@yutengjing/eslint-config-typescript": "^0.4.2",
-        "@yutengjing/prettier-config": "^0.0.1",
-        "@yutengjing/release": "^0.0.10",
-        "@yutengjing/tsconfig-node": "^0.0.3",
-        "esbuild": "^0.18.11",
-        "esbuild-visualizer": "^0.4.1",
-        "eslint": "^8.44.0",
-        "glob": "^10.3.2",
-        "lint-staged": "^13.2.3",
-        "mocha": "^10.2.0",
-        "ovsx": "^0.8.2",
-        "prettier": "^3.0.0",
-        "rimraf": "^5.0.1",
-        "simple-git-hooks": "^2.8.1",
-        "stale-dep": "^0.6.2",
-        "tsx": "^3.12.7",
-        "typescript": "^5.1.6"
-    },
-    "dependencies": {
-        "@types/zen-observable": "^0.8.7",
-        "delay": "5.0.0",
-        "puppeteer": "^21.5.2",
-        "zen-observable": "0.8.15"
-    }
+	"name": "speed-test",
+	"displayName": "Speed Test",
+	"version": "0.0.29",
+	"description": "Test your internet speed right in your IDE",
+	"publisher": "Emeka Orji",
+	"private": true,
+	"preview": true,
+	"author": {
+		"name": "Emeka Orji",
+		"email": "emekapraiseo@gmail.com",
+		"url": "https://github.com/emekaorji"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/emekaorji/speed-test/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/emekaorji/speed-test"
+	},
+	"bugs": {
+		"url": "https://github.com/emekaorji/speed-test/issues",
+		"email": "emekapraiseo@gmail.com"
+	},
+	"keywords": [
+		"Speed Test",
+		"Internet Speed",
+		"Network Speed",
+		"Speed",
+		"Internet",
+		"Download",
+		"Upload",
+		"Network"
+	],
+	"categories": [
+		"Other"
+	],
+	"main": "./out/src/extension.js",
+	"icon": "assets/logo.png",
+	"engines": {
+		"vscode": "^1.80.0"
+	},
+	"badges": [
+		{
+			"url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
+			"description": "PRs Welcome",
+			"href": "https://github.com/emekaorji/speed-test/fork"
+		}
+	],
+	"activationEvents": [
+		"*"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "speed-test.testSpeed",
+				"title": "Speed Test"
+			}
+		]
+	},
+	"eslintConfig": {
+		"extends": "@yutengjing/eslint-config-typescript",
+		"ignorePatterns": [
+			"test-workspace"
+		],
+		"rules": {
+			"indent": [
+				"error",
+				"tab"
+			]
+		}
+	},
+	"lint-staged": {
+		"*.{ts,json,md}": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npx lint-staged"
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm esbuild:base --minify",
+		"preinstall": "npx only-allow pnpm",
+		"postinstall": "stale-dep -u",
+		"prepare": "simple-git-hooks",
+		"clean": "npx rimraf -rf ./out",
+		"esbuild:base": "stale-dep && tsx scripts/esbuild.ts",
+		"esbuild:watch": "pnpm esbuild:base --sourcemap --watch",
+		"esbuild:analyze": "pnpm esbuild:base --minify --metafile --analyze && esbuild-visualizer --metadata ./meta.json --open",
+		"compile:test": "pnpm clean && tsc -b ./test/tsconfig.json",
+		"lint": "eslint src --ext ts",
+		"test": "stale-dep && pnpm compile:test && node ./out/test/runTests.js",
+		"package": "vsce package --no-dependencies",
+		"release": "npx @yutengjing/release",
+		"publish:vs-marketplace": "vsce publish --no-dependencies",
+		"publish:open-vsx": "ovsx publish --no-dependencies"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "^18.16.19",
+		"@types/vscode": "^1.80.0",
+		"@vscode/test-electron": "^2.3.3",
+		"@vscode/vsce": "^2.19.0",
+		"@yutengjing/eslint-config-typescript": "^0.4.2",
+		"@yutengjing/prettier-config": "^0.0.1",
+		"@yutengjing/release": "^0.0.10",
+		"@yutengjing/tsconfig-node": "^0.0.3",
+		"esbuild": "^0.18.11",
+		"esbuild-visualizer": "^0.4.1",
+		"eslint": "^8.44.0",
+		"glob": "^10.3.2",
+		"lint-staged": "^13.2.3",
+		"mocha": "^10.2.0",
+		"ovsx": "^0.8.2",
+		"prettier": "^3.0.0",
+		"rimraf": "^5.0.1",
+		"simple-git-hooks": "^2.8.1",
+		"stale-dep": "^0.6.2",
+		"tsx": "^3.12.7",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"@types/zen-observable": "^0.8.7",
+		"delay": "5.0.0",
+		"puppeteer": "^21.5.2",
+		"zen-observable": "0.8.15"
+	}
 }
