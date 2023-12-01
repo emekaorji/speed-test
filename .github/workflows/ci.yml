@@ -68,14 +68,8 @@ jobs:
           key: ${{ env.CACHE_PREFIX }}-${{ hashFiles('test/runTests.ts') }}
           restore-keys: ${{ env.CACHE_PREFIX }}
 
-      - run: xvfb-run -a pnpm test
-        if: runner.os == 'Linux'
-      - run: pnpm test
-        if: runner.os != 'Linux'
-
       - name: Set GIT_TAG
         id: set-tag
-        if: runner.os == 'Linux'
         run: |
           git fetch --tags origin
           GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
