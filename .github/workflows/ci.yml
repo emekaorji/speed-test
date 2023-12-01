@@ -86,6 +86,8 @@ jobs:
           fi
 
   publish:
+    needs: test
+    if: startsWith(needs.test.outputs.GIT_TAG, 'v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
