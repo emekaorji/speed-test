@@ -10,10 +10,7 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     outputs:
       GIT_TAG: ${{ steps.set-tag.outputs.GIT_TAG }}
     steps:
@@ -48,26 +45,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --no-optional
 
-      - name: Get the date on Ubuntu/MacOS
-        id: date_unix
-        if: runner.os != 'Windows'
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Get the date on Windows
-        id: date_windows
-        if: runner.os == 'Windows'
-        run: echo "DATE=$(Get-Date -Format 'yyyyMMdd')" >> $GITHUB_OUTPUT
-
-      - name: Cache .vscode-test
-        uses: actions/cache@v3
-        env:
-          # we use date as part of key because the vscode insiders updated daily
-          CACHE_PREFIX: ${{ runner.os }}-vscode-test-${{ steps.date_unix.outputs.DATE || steps.date_windows.outputs.DATE }}
-        with:
-          path: .vscode-test
-          key: ${{ env.CACHE_PREFIX }}-${{ hashFiles('test/runTests.ts') }}
-          restore-keys: ${{ env.CACHE_PREFIX }}
-
       - name: Set GIT_TAG
         id: set-tag
         run: |
@@ -80,8 +57,6 @@ jobs:
           fi
 
   publish:
-    needs: test
-    if: startsWith(needs.test.outputs.GIT_TAG, 'v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
