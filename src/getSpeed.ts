@@ -47,7 +47,7 @@ async function init(
 
 		observer.next(result);
 
-		if (result.isDone || result.uploadSpeed) {
+		if (result.isDone) {
 			browser.close();
 			observer.complete();
 			return;

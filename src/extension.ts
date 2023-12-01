@@ -72,10 +72,42 @@ export function activate(context: vscode.ExtensionContext) {
 					'Run again',
 				);
 				if (selection === 'Run again') runSpeedTestWithReport();
+			} else if (error.message.startsWith('net::ERR_INTERNET_DISCONNECTED')) {
+				myStatusBarItem.text = `$(error) No Network Error`;
+				myStatusBarItem.tooltip = new vscode.MarkdownString(
+					`### $(ports-open-browser-icon) Speed Test Status\n\nCan't test network speed as you are not connected to the internet`,
+					true,
+				);
+				const selection = await vscode.window.showErrorMessage(
+					"Can't test network speed as you are not connected to the internet",
+					'Retry',
+				);
+				if (selection === 'Retry') runSpeedTestWithReport();
+			} else if (error.message.startsWith('net::ERR_SSL_PROTOCOL_ERROR')) {
+				myStatusBarItem.text = `$(error) Service Error`;
+				myStatusBarItem.tooltip = new vscode.MarkdownString(
+					`### $(ports-open-browser-icon) Speed Test Status\n\nThere is an error with our speed test service.\n\nPlease [create an issue](https://github.com/emekaorji/speed-test/issues/new?title=Service+Error+net::ERR_SSL_PROTOCOL_ERROR) to let us know.`,
+					true,
+				);
+				const selection = await vscode.window.showErrorMessage(
+					'There is an error with our speed test service. Please create an issue to let us know.',
+					'Retry',
+					'Create Issue',
+				);
+				if (selection === 'Retry') runSpeedTestWithReport();
+				if (selection === 'Create Issue')
+					vscode.env.openExternal(
+						vscode.Uri.parse(
+							`https://github.com/emekaorji/speed-test/issues/new?title=Service+Error+net::ERR_SSL_PROTOCOL_ERROR`,
+						),
+					);
 			} else {
-				console.log(error.code, error.name, error.message);
 				myStatusBarItem.text = `$(error) Speed Test Error`;
-				const selection = await vscode.window.showErrorMessage(error, 'Retry');
+				myStatusBarItem.tooltip = new vscode.MarkdownString(
+					`### $(ports-open-browser-icon) Speed Test Status\n\nAn unknown error occured`,
+					true,
+				);
+				const selection = await vscode.window.showErrorMessage(error.message, 'Retry');
 				if (selection === 'Retry') runSpeedTestWithReport();
 			}
 		}
