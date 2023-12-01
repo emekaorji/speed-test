@@ -1,12 +1,12 @@
 'use strict';
-import { isDeepStrictEqual } from 'node:util';
+// import { isDeepStrictEqual } from 'node:util';
 
 import delay from 'delay';
 import type { Browser, Page } from 'puppeteer';
 import puppeteer from 'puppeteer';
 import Observable from 'zen-observable';
 
-interface Result {
+export interface Result {
 	downloadSpeed: number;
 	uploadSpeed: number;
 	downloadUnit: string | undefined;
@@ -25,8 +25,6 @@ async function init(
 	page: Page,
 	observer: ZenObservable.SubscriptionObserver<Result>,
 ) {
-	let previousResult;
-
 	while (true) {
 		// eslint-disable-next-line no-await-in-loop
 		const result: Result = await page.evaluate(() => {
@@ -47,17 +45,13 @@ async function init(
 			};
 		});
 
-		if (result.downloadSpeed > 0 && !isDeepStrictEqual(result, previousResult)) {
-			observer.next(result);
-		}
+		observer.next(result);
 
 		if (result.isDone || result.uploadSpeed) {
 			browser.close();
 			observer.complete();
 			return;
 		}
-
-		previousResult = result;
 
 		// eslint-disable-next-line no-await-in-loop
 		await delay(100);

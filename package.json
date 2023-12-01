@@ -52,8 +52,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "speed-test.testSpeed",
-				"title": "Speed Test"
+				"command": "SpeedTest.testSpeed",
+				"title": "Run Internet Speed Test"
 			}
 		]
 	},
