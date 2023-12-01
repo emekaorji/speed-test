@@ -3,7 +3,7 @@
 	"displayName": "Speed Test",
 	"version": "0.0.29",
 	"description": "Test your internet speed right in your IDE",
-	"publisher": "Emeka Orji",
+	"publisher": "coderabbi",
 	"private": true,
 	"preview": true,
 	"author": {
