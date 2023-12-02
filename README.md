@@ -1,6 +1,6 @@
 # Speed Test VSCode Extension
 
-<div style="height: 20em; background: #000000; display: flex; justify-content: center; align-items: center; overflow: hidden; border-radius: 1em;"><img alt="Speed Test Logo" src="./assets/logo2.png" style="background: transparent;" /></div>
+<img alt="Speed Test Logo" src="./assets/logo2.png" style="border-radius: 1em;" />
 
 This VSCode extension allow you to test your internet upload and download speed right in your IDE.
 
@@ -16,16 +16,16 @@ This VSCode extension allow you to test your internet upload and download speed 
 1. Search for "Speed Test" in the Extensions marketplace.
 1. Click the "Install" button next to the "Speed Test" extension.
 1. Once installed, you can find the extension running in your status bar.
-   <span style="display: inline-flex; overflow: hidden; border-radius: 1em;"><img alt="loading" src="./assets/loading.png" /></span>
+   <img alt="Loading" src="https://raw.githubusercontent.com/emekaorji/speed-test/main/assets/loading.png" style="border-radius: 1em;" />
 
 ### Usage 🛠️
 
 1. Launch Visual Studio Code and Speed Test should begin running.
 1. To see the progress of the current running test, click on the extension's button in the status bar.
-   <span style="display: inline-flex; overflow: hidden; border-radius: 1em;"><img alt="loading" src="./assets/progress.png" /></span>
+   <img alt="Loading" src="https://raw.githubusercontent.com/emekaorji/speed-test/main/assets/progress.png" style="border-radius: 1em;" />
 1. "Cancel" to stop the test immediately.
 1. You can "Run again" after a test has been aborted or completed.
-   <span style="display: inline-flex; overflow: hidden; border-radius: 1em;"><img alt="loading" src="./assets/success.png" /></span>
+   <img alt="Loading" src="https://raw.githubusercontent.com/emekaorji/speed-test/main/assets/success.png" style="border-radius: 1em;" />
 1. In case of any errors or issues, appropriate error messages will be displayed, indicating the problem encountered. Refer to the #Troubleshooting section of this docs and try to fix the issue based on the error message. If the error persists, please reach out to me via Twitter DM (@code_rabbi).
 
 ### Extension Deactivation 😔
