@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
 	myStatusBarItem.command = 'SpeedTest.testSpeed';
 	myStatusBarItem.name = 'Speed Test';
-	myStatusBarItem.text = `$(loading~spin)$(arrow-small-down)0$(arrow-small-up)0`;
+	myStatusBarItem.text = `$(loading~spin)$(arrow-down)0$(arrow-up)0`;
 	myStatusBarItem.tooltip = new vscode.MarkdownString(
 		'$(ports-open-browser-icon) Speed Test Running',
 		true,
@@ -32,10 +32,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 		try {
 			isRunning = true;
-			myStatusBarItem.text = `$(loading~spin)$(arrow-small-down)0$(arrow-small-up)0`;
+			myStatusBarItem.text = `$(loading~spin)$(arrow-down)0$(arrow-up)0`;
 			await getSpeed().forEach((result_) => {
 				result = result_;
-				myStatusBarItem.text = `$(loading~spin)$(arrow-small-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-small-up)${result.uploadSpeed}${result.uploadUnit}`;
+				myStatusBarItem.text = `$(loading~spin)$(arrow-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-up)${result.uploadSpeed}${result.uploadUnit}`;
 				if (progress) {
 					progress.report({
 						message: `Download: ${result.downloadSpeed}${result.downloadUnit} | Upload: ${result.uploadSpeed}${result.uploadUnit}`,
@@ -49,9 +49,9 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 			isRunning = false;
 			if (!result) throw new Error('Could not detect network speed');
-			myStatusBarItem.text = `$(ports-open-browser-icon)$(arrow-small-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-small-up)${result.uploadSpeed}${result.uploadUnit}`;
+			myStatusBarItem.text = `$(ports-open-browser-icon)$(arrow-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-up)${result.uploadSpeed}${result.uploadUnit}`;
 			myStatusBarItem.tooltip = new vscode.MarkdownString(
-				`### $(ports-open-browser-icon) Speed Test Status\n\nDownload Speed - ${result.downloadSpeed}${result.downloadUnit}\n\nUpload Speed - ${result.uploadSpeed}${result.uploadUnit}\n\n__Last checked at ${lastCheckedDate}__`,
+				`### $(ports-open-browser-icon) Speed Test Status\n\nDownload Speed - ${result.downloadSpeed}${result.downloadUnit}\n\nUpload Speed - ${result.uploadSpeed}${result.uploadUnit}\n\n##### _Last checked at ${lastCheckedDate}_`,
 				true,
 			);
 			const selection = await vscode.window.showInformationMessage(
@@ -62,9 +62,9 @@ export function activate(context: vscode.ExtensionContext) {
 		} catch (error: any) {
 			isRunning = false;
 			if (error.name === 'Aborted' && result) {
-				myStatusBarItem.text = `$(ports-open-browser-icon)$(arrow-small-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-small-up)${result.uploadSpeed}${result.uploadUnit}`;
+				myStatusBarItem.text = `$(ports-open-browser-icon)$(arrow-down)${result.downloadSpeed}${result.downloadUnit}$(arrow-up)${result.uploadSpeed}${result.uploadUnit}`;
 				myStatusBarItem.tooltip = new vscode.MarkdownString(
-					`### $(ports-open-browser-icon) Speed Test Status\n\nDownload Speed - ${result.downloadSpeed}${result.downloadUnit}\n\nUpload Speed - ${result.uploadSpeed}${result.uploadUnit}\n\n__Last checked at ${lastCheckedDate}__`,
+					`### $(ports-open-browser-icon) Speed Test Status\n\nDownload Speed - ${result.downloadSpeed}${result.downloadUnit}\n\nUpload Speed - ${result.uploadSpeed}${result.uploadUnit}\n\n##### _Last checked at ${lastCheckedDate}_`,
 					true,
 				);
 				const selection = await vscode.window.showWarningMessage(
