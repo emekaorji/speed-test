@@ -1,6 +1,6 @@
 # Speed Test VSCode Extension
 
-<div style="border-radius: 1em; overflow: hidden;"><img alt="Speed Test Logo" src="./assets/logo2.png" /></div>
+<div style="border-radius: 1em; overflow: hidden;"><img alt="Speed Test Logo" src="https://raw.githubusercontent.com/emekaorji/speed-test/main/assets/logo2.png" /></div>
 
 This VSCode extension allow you to test your internet upload and download speed right in your IDE.
 
