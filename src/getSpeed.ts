@@ -1,5 +1,4 @@
 'use strict';
-// import { isDeepStrictEqual } from 'node:util';
 
 import delay from 'delay';
 import locateChrome from 'locate-chrome';
@@ -64,10 +63,9 @@ export const getSpeed = () =>
 		// Wrapped in async IIFE as `new Observable` can't handle async function
 		(async () => {
 			const chromePath = await locateChrome();
-			console.log(chromePath);
 			const browser = await puppeteer.launch({
 				args: ['--no-sandbox'],
-				// executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+				executablePath: chromePath || undefined,
 				headless: true,
 			});
 			const page = await browser.newPage();

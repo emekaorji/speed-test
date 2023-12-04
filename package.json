@@ -1,7 +1,7 @@
 {
 	"name": "speed-test",
 	"displayName": "Speed Test",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Test your internet speed right in your IDE",
 	"publisher": "coderabbi",
 	"private": true,

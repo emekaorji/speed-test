@@ -1,3 +1,9 @@
+## v1.0.6 (2023-12-04)
+
+[compare changes](https://github.com/emekaorji/speed-test/compare/v1.0.5...v1.0.6 '2023-12-04')
+
+[View changes on GitHub](https://github.com/emekaorji/speed-test/compare/v1.0.5...v1.0.6 '2023-12-04')
+
 ## v1.0.5 (2023-12-04)
 
 [compare changes](https://github.com/emekaorji/speed-test/compare/v1.0.4...v1.0.5 '2023-12-04')
