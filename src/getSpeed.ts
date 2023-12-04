@@ -2,6 +2,7 @@
 // import { isDeepStrictEqual } from 'node:util';
 
 import delay from 'delay';
+import locateChrome from 'locate-chrome';
 import type { Browser, Page } from 'puppeteer';
 import puppeteer from 'puppeteer';
 import Observable from 'zen-observable';
@@ -62,7 +63,13 @@ export const getSpeed = () =>
 	new Observable<Result>((observer) => {
 		// Wrapped in async IIFE as `new Observable` can't handle async function
 		(async () => {
-			const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+			const chromePath = await locateChrome();
+			console.log(chromePath);
+			const browser = await puppeteer.launch({
+				args: ['--no-sandbox'],
+				executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+				headless: true,
+			});
 			const page = await browser.newPage();
 			await page.goto('https://fast.com');
 			await init(browser, page, observer);

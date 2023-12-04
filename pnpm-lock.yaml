@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/locate-chrome':
+    specifier: ^0.1.2
+    version: 0.1.2
   '@types/zen-observable':
     specifier: ^0.8.7
     version: 0.8.7
   delay:
     specifier: 5.0.0
     version: 5.0.0
+  locate-chrome:
+    specifier: ^0.1.1
+    version: 0.1.1
   puppeteer:
     specifier: ^21.5.2
     version: 21.5.2(typescript@5.1.6)
@@ -766,6 +772,10 @@ packages:
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/locate-chrome@0.1.2:
+    resolution: {integrity: sha512-PqUXiITBwSDLthAyGTiomTvNEWH3OqQWqGYMFiveV/YpyUAmD1aMd17wJFK2Fd+UXD1ldXnorO3mXA2jtxf0+w==}
+    dev: false
 
   /@types/mdast@3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
@@ -2106,6 +2116,10 @@ packages:
       is-date-object: 1.0.5
       is-symbol: 1.0.4
     dev: true
+
+  /es6-promise@2.3.0:
+    resolution: {integrity: sha512-oyOjMhyKMLEjOOtvkwg0G4pAzLQ9WdbbeX7WdqKzvYXu+UFgD0Zo/Brq5Q49zNmnGPPzV5rmYvrr0jz1zWx8Iw==}
+    dev: false
 
   /esbuild-visualizer@0.4.1:
     resolution: {integrity: sha512-5XI3unzqPr3xqfzR/mzK3LhoAJs3FQhiIXBsKJ3Oh6CjyjuXz6HVmhJMoisrcpeTZip65fR54Dk53MZncA0AUQ==}
@@ -3699,6 +3713,15 @@ packages:
       wrap-ansi: 7.0.0
     dev: true
 
+  /locate-chrome@0.1.1:
+    resolution: {integrity: sha512-87n87RotxqHb/TJoSgW1ayezxZtuki3+QGtfKbTDfjOS0OSKX9xHJv7IW+OK1XPAVl+RVo4M1J4xe7rBmLNsVA==}
+    hasBin: true
+    dependencies:
+      es6-promise: 2.3.0
+      queue-async: 1.2.1
+      userhome: 1.0.0
+    dev: false
+
   /locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -4598,6 +4621,10 @@ packages:
       side-channel: 1.0.4
     dev: true
 
+  /queue-async@1.2.1:
+    resolution: {integrity: sha512-aPVvlovU79BlPPgEiroL5XO57lZy1WrnyypfpGy25O+VQBbjOgr4XZYL/JVPuYN1zQO0oEH3bd1ZPRPO/nqZ5A==}
+    dev: false
+
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -5490,6 +5517,11 @@ packages:
 
   /urlpattern-polyfill@9.0.0:
     resolution: {integrity: sha512-WHN8KDQblxd32odxeIgo83rdVDE2bvdkb86it7bMhYZwWKJz0+O0RK/eZiHYnM+zgt/U7hAHOlCQGfjjvSkw2g==}
+    dev: false
+
+  /userhome@1.0.0:
+    resolution: {integrity: sha512-ayFKY3H+Pwfy4W98yPdtH1VqH4psDeyW8lYYFzfecR9d6hqLpqhecktvYR3SEEXt7vG0S1JEpciI3g94pMErig==}
+    engines: {node: '>= 0.8.0'}
     dev: false
 
   /util-deprecate@1.0.2:

@@ -1,7 +1,7 @@
 {
 	"name": "speed-test",
 	"displayName": "Speed Test",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Test your internet speed right in your IDE",
 	"publisher": "coderabbi",
 	"private": true,
@@ -120,8 +120,10 @@
 		"typescript": "^5.1.6"
 	},
 	"dependencies": {
+		"@types/locate-chrome": "^0.1.2",
 		"@types/zen-observable": "^0.8.7",
 		"delay": "5.0.0",
+		"locate-chrome": "^0.1.1",
 		"puppeteer": "^21.5.2",
 		"zen-observable": "0.8.15"
 	}
