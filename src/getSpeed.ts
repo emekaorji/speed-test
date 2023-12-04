@@ -67,7 +67,7 @@ export const getSpeed = () =>
 			console.log(chromePath);
 			const browser = await puppeteer.launch({
 				args: ['--no-sandbox'],
-				executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+				// executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 				headless: true,
 			});
 			const page = await browser.newPage();
